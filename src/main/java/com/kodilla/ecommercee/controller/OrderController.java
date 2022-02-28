@@ -40,8 +40,8 @@ public class OrderController {
         return new ResponseEntity<>(Stream.of(orderDto).collect(Collectors.toList()), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/order")
-    public ResponseEntity<OrderDto> getOrder(@RequestParam("orderId") Long orderId) {
+    @RequestMapping(method = RequestMethod.GET, value = "/order/{orderId}")
+    public ResponseEntity<OrderDto> getOrder(@PathVariable Long orderId) {
         /*
         Order order = service.getOrderById(orderId);
         return new ResponseEntity<>(mapper.toOrderDto(order), HttpStatus.OK);
@@ -68,8 +68,8 @@ public class OrderController {
         return ResponseEntity.ok().build();
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/order")
-    public ResponseEntity<Void> deleteOrder(@RequestParam("orderId") Long orderId) {
+    @RequestMapping(method = RequestMethod.DELETE, value = "/order/{orderId}")
+    public ResponseEntity<Void> deleteOrder(@PathVariable Long orderId) {
         /*
             service.removeOrder(orderId);
         */
