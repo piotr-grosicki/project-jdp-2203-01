@@ -15,8 +15,13 @@ import java.util.List;
 @RequestMapping("/v1/products")
 @RequiredArgsConstructor
 public class ProductController {
-    private ProductDto bagStub = new ProductDto("bag", 1L, BigDecimal.TEN,
-            true, "Red and hot");
+    private final ProductDto productDto = ProductDto.builder()
+            .id(1L)
+            .name("bag")
+            .description("New product")
+            .availability(true)
+            .price(new BigDecimal(100))
+            .build();
 
     @GetMapping
     public ResponseEntity<List<ProductDto>> getProducts() {
@@ -25,7 +30,7 @@ public class ProductController {
 
     private List<ProductDto> getListOfProducts() {
         List<ProductDto> productList = new ArrayList<>();
-        productList.add(bagStub);
+        productList.add(productDto);
         return productList;
     }
 
@@ -36,12 +41,12 @@ public class ProductController {
 
     @GetMapping(value = "/{productId}")
     public ResponseEntity<ProductDto> getProduct(@PathVariable Long productId) {
-        return ResponseEntity.ok(bagStub);
+        return ResponseEntity.ok(productDto);
     }
 
     @PutMapping
     public ResponseEntity<ProductDto> updateProduct(@RequestBody ProductDto productDto) {
-        return ResponseEntity.ok(bagStub);
+        return ResponseEntity.ok(productDto);
     }
 
     @DeleteMapping(value = "/{productId}")
