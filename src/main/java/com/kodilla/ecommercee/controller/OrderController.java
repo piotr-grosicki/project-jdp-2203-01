@@ -27,22 +27,22 @@ public class OrderController {
         return new ResponseEntity<>(Stream.of(orderDto).collect(Collectors.toList()), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/order/{orderId}")
+    @RequestMapping(method = RequestMethod.GET, value = "/orders/{orderId}")
     public ResponseEntity<OrderDto> getOrder(@PathVariable Long orderId) {
         return new ResponseEntity<>(orderDto, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/order", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST, value = "/orders", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OrderDto> addOrder(@RequestBody OrderDto newOrderDto) {
         return new ResponseEntity<>(orderDto, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/order")
+    @RequestMapping(method = RequestMethod.PUT, value = "/orders")
     public ResponseEntity<Void> updateOrder(@RequestBody OrderDto updatedOrderDto) {
         return ResponseEntity.ok().build();
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/order/{orderId}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/orders/{orderId}")
     public ResponseEntity<Void> deleteOrder(@PathVariable Long orderId) {
         return ResponseEntity.ok().build();
     }
