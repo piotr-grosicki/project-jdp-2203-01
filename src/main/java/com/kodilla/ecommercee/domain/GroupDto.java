@@ -14,6 +14,5 @@ public class GroupDto {
 
     private Long groupId;
     private String groupName;
-    private List<Product> products;
 
 }
