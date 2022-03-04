@@ -2,8 +2,6 @@ package com.kodilla.ecommercee.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 
 @Entity
@@ -11,9 +9,6 @@ import java.time.LocalDate;
 public class Order {
 
     private Long id;
-    private BigDecimal totalCost;
-    private LocalDate creationDate;
-    private boolean orderConfirmation;
     private User user;
 
     public Order() {}
@@ -28,33 +23,6 @@ public class Order {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Column(name = "TOTAL_COST")
-    public BigDecimal getTotalCost() {
-        return totalCost;
-    }
-
-    public void setTotalCost(BigDecimal totalCost) {
-        this.totalCost = totalCost;
-    }
-
-    @Column(name = "CREATION_DATE")
-    public LocalDate getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    @Column(name = "ORDER_CONFIRMATION")
-    public boolean isOrderConfirmation() {
-        return orderConfirmation;
-    }
-
-    public void setOrderConfirmation(boolean orderConfirmation) {
-        this.orderConfirmation = orderConfirmation;
     }
 
     @ManyToOne
