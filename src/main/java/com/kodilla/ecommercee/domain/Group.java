@@ -1,6 +1,7 @@
 package com.kodilla.ecommercee.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,9 +11,14 @@ import java.util.ArrayList;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
 @Entity
 @Table(name = "groups")
 public class Group {
+
+    public Group(String name) {
+        this.name = name;
+    }
 
     @Id
     @GeneratedValue
