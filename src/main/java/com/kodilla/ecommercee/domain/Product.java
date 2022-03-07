@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-//Encja stworzona jako stub do momentu uploadu zadania JDP220301-12
 @NoArgsConstructor
 @Getter
 @Setter
