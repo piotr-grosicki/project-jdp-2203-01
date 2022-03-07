@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 
 //Encja stworzona jako stub do momentu uploadu zadania JDP220301-12
@@ -23,4 +25,8 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "GROUP_ID")
     private Group group;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")
+    private List<Order> orders = new ArrayList<>();
+
 }
