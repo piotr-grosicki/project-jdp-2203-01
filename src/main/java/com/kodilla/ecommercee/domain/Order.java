@@ -15,11 +15,18 @@ import java.util.List;
 @Entity
 @Table(name = "ORDERS")
 public class Order {
+
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ORDER_ID", unique = true)
+    @Column(name = "ID", unique = true)
     private Long id;
+
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "orders")
     private List<Product> products = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
+    private User user;
+
 }
