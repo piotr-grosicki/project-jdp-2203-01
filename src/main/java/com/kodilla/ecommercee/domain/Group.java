@@ -9,9 +9,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "GROUPS_")
+@Table(name = "\"GROUPS\"")
 public class Group {
 
     @Id

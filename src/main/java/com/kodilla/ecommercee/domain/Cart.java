@@ -12,8 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity(name = "CARTS")
-@Table()
+@Entity
+@Table(name = "CARTS")
 public class Cart {
     @Id
     @GeneratedValue

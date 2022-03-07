@@ -12,8 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity(name = "ORDERS")
-@Table()
+@Entity
+@Table(name = "ORDERS")
 public class Order {
     @Id
     @GeneratedValue
