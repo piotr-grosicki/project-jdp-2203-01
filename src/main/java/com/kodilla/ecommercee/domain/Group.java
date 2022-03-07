@@ -16,7 +16,7 @@ public class Group {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "GROUP_ID", unique = true)
     private Long id;
 
     @Column(name = "NAME")

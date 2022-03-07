@@ -19,7 +19,7 @@ public class Order {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "ORDER_ID", unique = true)
     private Long id;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "orders")

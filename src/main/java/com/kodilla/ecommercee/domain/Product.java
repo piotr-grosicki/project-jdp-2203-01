@@ -16,6 +16,7 @@ import java.util.List;
 @Entity
 @Table(name = "products")
 public class Product {
+
     @Id
     @GeneratedValue
     @NotNull
@@ -25,6 +26,7 @@ public class Product {
     private BigDecimal price;
     private Boolean availability;
     private String description;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "JOIN_PRODUCTS_CARTS",
             joinColumns = {@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "PRODUCT_ID")},

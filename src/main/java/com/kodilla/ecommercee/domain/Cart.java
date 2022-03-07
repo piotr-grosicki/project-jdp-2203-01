@@ -19,7 +19,7 @@ public class Cart {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "CART_ID", unique = true)
     private Long id;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "carts")
