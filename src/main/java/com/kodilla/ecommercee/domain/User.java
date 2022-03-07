@@ -1,81 +1,39 @@
 package com.kodilla.ecommercee.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "USERS")
 public class User {
-
-    private Long id;
-    private String login;
-    private int phoneNumber;
-    private String email;
-    private String address;
-    private List<Order> orders = new ArrayList<>();
-
-    public User() {}
 
     @Id
     @NotNull
     @GeneratedValue
     @Column(name = "ID", unique = true)
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private Long id;
 
     @Column(name = "LOGIN")
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
+    private String login;
     @Column(name = "PHONE_NUMBER")
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
+    private int phoneNumber;
     @Column(name = "EMAIL")
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    private String email;
     @Column(name = "ADDRESS")
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
+    private String address;
     @OneToMany (targetEntity = Order.class,
                 mappedBy = "user",
                 cascade = CascadeType.ALL,
                 fetch = FetchType.LAZY)
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
+    private List<Order> orders = new ArrayList<>();
 
 }
