@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,4 +25,21 @@ public class Cart {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID")
     private User user;
+
+    @OneToMany(
+            targetEntity = Order.class,
+            mappedBy = "id",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    private List<Order> order = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "CartsHasProducts",
+            joinColumns = {@JoinColumn(name = "products_id")},
+            inverseJoinColumns = {@JoinColumn(name = "carts_id")}
+    )
+    private List<Product> productInTheCart = new ArrayList<>();
+
 }
