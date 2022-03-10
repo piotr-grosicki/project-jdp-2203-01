@@ -32,12 +32,12 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/{OrderID}")
     public ResponseEntity<Void> createOrderFromCart(@RequestBody Long OrderID) {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/{idCart}")
     public ResponseEntity<Void> createEmptyCart(@RequestBody Long idCart) {
         return ResponseEntity.ok().build();
     }
