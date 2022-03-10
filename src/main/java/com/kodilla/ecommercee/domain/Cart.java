@@ -26,13 +26,9 @@ public class Cart {
     @JoinColumn(name = "USER_ID")
     private User user;
 
-    @OneToMany(
-            targetEntity = Order.class,
-            mappedBy = "id",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    private List<Order> order = new ArrayList<>();
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ORDER_ID")
+    private Order order;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
