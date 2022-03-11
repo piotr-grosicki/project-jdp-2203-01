@@ -1,11 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
-import com.kodilla.ecommercee.domain.Cart;
-import com.kodilla.ecommercee.domain.User;
-import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.repository.OrderRespository;
-import com.kodilla.ecommercee.repository.UserRepository;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
-import java.time.LocalDate;
 
 
 import static org.junit.Assert.assertEquals;
@@ -26,15 +20,6 @@ public class OrderTestSuite {
 
     @Autowired
     private OrderRespository orderRespository;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    private User user;
-    private User user2;
-    private Order order1;
-    private Order order2;
-
 
     @Test
     public void testGetsAllOrders() {
