@@ -9,10 +9,10 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
+@Entity
 @Getter
 @Setter
-@Entity
+@NoArgsConstructor
 @Table(name = "CARTS")
 public class Cart {
 
@@ -29,4 +29,3 @@ public class Cart {
     @JoinColumn(name = "USER_ID")
     private User user;
 }
-
