@@ -8,11 +8,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-
-import javax.transaction.Status;
-import java.time.LocalDate;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -35,9 +30,8 @@ public class OrderTestSuite {
     @Before
     public void prepareUsersAndOrders() {
 
-        this.order1 = new Order();
-
-        this.order2 = new Order();
+        Order order1 = new Order();
+        Order order2 = new Order();
 
         orderRespository.save(order1);
         orderRespository.save(order2);
