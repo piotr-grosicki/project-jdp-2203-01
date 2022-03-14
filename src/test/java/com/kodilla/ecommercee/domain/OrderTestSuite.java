@@ -1,6 +1,8 @@
 package com.kodilla.ecommercee.domain;
 
 import com.kodilla.ecommercee.repository.OrderRespository;
+import com.kodilla.ecommercee.repository.UserRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +10,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
-
+import javax.transaction.Status;
+import java.time.LocalDate;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,15 +25,31 @@ public class OrderTestSuite {
     @Autowired
     private OrderRespository orderRespository;
 
+    private UserRepository userRepository;
+
+    private Order order1;
+    private Order order2;
+    private User user;
+
+
+    @Before
+    public void prepareUsersAndOrders() {
+
+        this.order1 = new Order();
+
+        this.order2 = new Order();
+
+        orderRespository.save(order1);
+        orderRespository.save(order2);
+
+    }
+
     @Test
     public void testGetsAllOrders() {
 
         //Given
-        Order order1 = new Order();
-        Order order2 = new Order();
+
         //When
-        orderRespository.save(order1);
-        orderRespository.save(order2);
         int result = orderRespository.findAll().size();
 
         //Then
@@ -46,7 +66,7 @@ public class OrderTestSuite {
         orderRespository.save(order);
         int result = orderRespository.findAll().size();
         //Then
-        assertEquals(4, result);
+        assertEquals(3, result);
     }
 
     @Test
@@ -62,7 +82,7 @@ public class OrderTestSuite {
         orderRespository.deleteById(orderId);
 
         //Then
-        assertEquals(3, orderRespository.findAll().size());
+        assertEquals(2, orderRespository.findAll().size());
         assertFalse(orderRespository.existsById(orderId));
         assertEquals(3, orderRespository.findAll().size());
 
