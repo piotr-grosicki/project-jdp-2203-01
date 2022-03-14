@@ -32,7 +32,7 @@ public class User {
     private String address;
     @OneToMany (targetEntity = Order.class,
                 mappedBy = "user",
-                cascade = CascadeType.ALL,
+                cascade = CascadeType.REMOVE,
                 fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 

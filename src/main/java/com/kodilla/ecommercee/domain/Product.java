@@ -25,6 +25,6 @@ public class Product {
     @JoinColumn(name = "GROUP_ID")
     private Group group;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "products")
     private List<Order> orders = new ArrayList<>();
 }

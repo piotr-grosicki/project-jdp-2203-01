@@ -22,14 +22,14 @@ public class Cart {
     @Column(name = "CART_ID", unique = true)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID")
     private User user;
 
     @OneToMany(
             targetEntity = Order.class,
             mappedBy = "cart",
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.REMOVE,
             fetch = FetchType.LAZY
     )
     private List<Order> orders = new ArrayList<>();
