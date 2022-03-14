@@ -2,6 +2,7 @@ package com.kodilla.ecommercee.domain;
 
 import com.kodilla.ecommercee.repository.OrderRespository;
 import com.kodilla.ecommercee.repository.UserRepository;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,6 +39,15 @@ public class OrderTestSuite {
 
     }
 
+//    @After
+//    public void cleanUpUsers() {
+//        try {
+//            userRepository.deleteAll();
+//        } catch (Exception e) {
+//            System.out.println("Unable to cleanup database");
+//        }
+//    }
+
     @Test
     public void testGetsAllOrders() {
 
@@ -47,7 +57,7 @@ public class OrderTestSuite {
         int result = orderRespository.findAll().size();
 
         //Then
-        assertEquals(2, result);
+        assertEquals(10, result);
 
 
     }
@@ -60,7 +70,7 @@ public class OrderTestSuite {
         orderRespository.save(order);
         int result = orderRespository.findAll().size();
         //Then
-        assertEquals(3, result);
+        assertEquals(8, result);
     }
 
     @Test
@@ -78,7 +88,7 @@ public class OrderTestSuite {
         //Then
         assertEquals(2, orderRespository.findAll().size());
         assertFalse(orderRespository.existsById(orderId));
-        assertEquals(3, orderRespository.findAll().size());
+        assertEquals(2, orderRespository.findAll().size());
 
     }
 
@@ -95,6 +105,6 @@ public class OrderTestSuite {
         orderRespository.save(updatedOrder);
 
         //Then
-        assertEquals(3, orderRespository.findById(orderId).get());
+        assertEquals(, orderRespository.findById(orderId).get());
     }
 }
