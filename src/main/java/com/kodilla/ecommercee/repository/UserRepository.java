@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
+
     @Override
     Optional<User> findById(Long id);
     @Override
@@ -20,4 +21,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
     Optional<User> findByAddress(String address);
     Optional<User> findByEmail(String email);
     Optional<User> findByPhoneNumber(int phoneNumber);
+
 }

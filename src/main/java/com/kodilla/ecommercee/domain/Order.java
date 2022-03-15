@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +24,28 @@ public class Order {
     @Column(name = "ORDER_ID", unique = true)
     private Long id;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "orders")
-    private List<Product> products = new ArrayList<>();
+    @NotNull
+    @Column(name = "TOTAL_COST")
+    private BigDecimal totalCost;
+
+    @NotNull
+    @Column(name = "CREATION_DATE")
+    private LocalDate creationDate;
+
+    @NotNull
+    @Column(name = "ORDER_CONFIRMATION")
+    private boolean orderConfirmation;
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "JOIN_ORDERS_WITH_PRODUCTS",
+            joinColumns = {@JoinColumn(name = "ORDER_ID", referencedColumnName = "ORDER_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "PRODUCT_ID")}
+    )
+    private List<Product> products = new ArrayList<>();
 
 }
