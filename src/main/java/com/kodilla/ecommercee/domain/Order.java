@@ -3,6 +3,7 @@ package com.kodilla.ecommercee.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.engine.spi.Status;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -35,6 +36,12 @@ public class Order {
     @NotNull
     @Column(name = "ORDER_CONFIRMATION")
     private boolean orderConfirmation;
+
+    @NotNull
+    @Column(name = "status")
+    private Status status;
+
+
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")

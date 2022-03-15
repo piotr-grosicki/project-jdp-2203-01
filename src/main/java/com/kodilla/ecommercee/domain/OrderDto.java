@@ -3,6 +3,7 @@ package com.kodilla.ecommercee.domain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import org.hibernate.engine.spi.Status;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,4 +16,5 @@ public class OrderDto {
     private BigDecimal totalCost;
     private LocalDate creationDate;
     private boolean orderConfirmation;
+    private String status;
 }
