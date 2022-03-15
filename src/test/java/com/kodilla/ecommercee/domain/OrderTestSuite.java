@@ -39,14 +39,6 @@ public class OrderTestSuite {
 
     }
 
-//    @After
-//    public void cleanUpUsers() {
-//        try {
-//            userRepository.deleteAll();
-//        } catch (Exception e) {
-//            System.out.println("Unable to cleanup database");
-//        }
-//    }
 
     @Test
     public void testGetsAllOrders() {
@@ -101,10 +93,10 @@ public class OrderTestSuite {
 
         //When
         Order updatedOrder = orderRespository.findById(orderId).get();
-        updatedOrder.getId();
+        updatedOrder.setId(784485999L);
         orderRespository.save(updatedOrder);
 
         //Then
-        assertEquals(, orderRespository.findById(orderId).get());
+        assertEquals(784485999L, orderRespository.findById(orderId).get());
     }
 }
