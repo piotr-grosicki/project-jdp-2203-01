@@ -133,6 +133,5 @@ public class ProductTest {
         assertTrue(groupRepository.findById(group.getId()).isPresent());
     }
 
-
 }
 
