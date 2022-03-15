@@ -17,10 +17,11 @@ import java.util.List;
 public class Cart {
 
     @Id
-    @NotNull
     @GeneratedValue
-    @Column(name = "ID", unique = true)
+    @NotNull
+    @Column(name = "CART_ID", unique = true)
     private Long id;
+
 
     @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID")

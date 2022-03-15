@@ -6,20 +6,24 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
-
-@Entity
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
+@Entity
 @Table(name = "ORDERS")
 public class Order {
 
     @Id
-    @NotNull
     @GeneratedValue
-    @Column(name = "ID", unique = true)
+    @NotNull
+    @Column(name = "ORDER_ID", unique = true)
     private Long id;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "orders")
+    private List<Product> products = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")
