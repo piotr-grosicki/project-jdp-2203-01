@@ -30,7 +30,7 @@ public class Cart {
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 
-    @ManyToMany(cascade = CascadeType.REMOVE)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "CartsHasProducts",
             joinColumns = {@JoinColumn(name = "products_id")},
