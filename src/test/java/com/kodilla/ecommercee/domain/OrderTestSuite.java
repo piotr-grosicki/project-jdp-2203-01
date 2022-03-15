@@ -2,6 +2,7 @@ package com.kodilla.ecommercee.domain;
 
 import com.kodilla.ecommercee.repository.OrderRespository;
 import com.kodilla.ecommercee.repository.UserRepository;
+import org.hibernate.engine.spi.Status;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,6 +39,15 @@ public class OrderTestSuite {
         orderRespository.save(order2);
 
     }
+    @After
+    public void cleanUpOrder() {
+    //        CleanUp
+        try {
+        orderRespository.deleteAll();
+    } catch (Exception e) {
+        System.out.println("Unable to cleanup database");
+    }
+}
 
 
     @Test
@@ -49,7 +59,7 @@ public class OrderTestSuite {
         int result = orderRespository.findAll().size();
 
         //Then
-        assertEquals(10, result);
+        assertEquals(2, result);
 
 
     }
@@ -62,7 +72,7 @@ public class OrderTestSuite {
         orderRespository.save(order);
         int result = orderRespository.findAll().size();
         //Then
-        assertEquals(8, result);
+        assertEquals(3, result);
     }
 
     @Test
@@ -93,10 +103,10 @@ public class OrderTestSuite {
 
         //When
         Order updatedOrder = orderRespository.findById(orderId).get();
-        updatedOrder.setId(784485999L);
+        updatedOrder.setStatus(Status.GONE);
         orderRespository.save(updatedOrder);
 
         //Then
-        assertEquals(784485999L, orderRespository.findById(orderId).get());
+        assertEquals(Status.GONE, orderRespository.findById(orderId).get().getStatus());
     }
 }

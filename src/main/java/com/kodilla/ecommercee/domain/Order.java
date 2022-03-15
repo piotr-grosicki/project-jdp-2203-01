@@ -1,13 +1,15 @@
 package com.kodilla.ecommercee.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.engine.spi.Status;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-
+@AllArgsConstructor
 @Entity
 @Getter
 @Setter
@@ -24,5 +26,8 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
+
+    @Column(name = "status")
+    private Status status;
 
 }
