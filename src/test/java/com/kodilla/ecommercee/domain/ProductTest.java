@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -105,6 +107,9 @@ public class ProductTest {
     public void orderProductTest() {
         List<Order> orders = new ArrayList<>();
         Order order = new Order();
+        order.setOrderConfirmation(true);
+        order.setCreationDate(LocalDate.now());
+        order.setTotalCost(new BigDecimal(23.50));
         orders.add(order);
         product.setOrders(orders);
         productRepository.save(product);
