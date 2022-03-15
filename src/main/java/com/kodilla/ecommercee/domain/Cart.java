@@ -22,10 +22,21 @@ public class Cart {
     @Column(name = "CART_ID", unique = true)
     private Long id;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "carts")
-    private List<Product> products = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID")
     private User user;
+
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ORDER_ID")
+    private Order order;
+
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "CartsHasProducts",
+            joinColumns = {@JoinColumn(name = "products_id")},
+            inverseJoinColumns = {@JoinColumn(name = "carts_id")}
+    )
+    private List<Product> productInTheCart = new ArrayList<>();
+
 }
