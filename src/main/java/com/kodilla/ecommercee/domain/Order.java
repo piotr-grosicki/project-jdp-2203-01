@@ -35,14 +35,9 @@ public class Order {
     @Column(name = "ORDER_CONFIRMATION")
     private boolean orderConfirmation;
 
-
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "CART_ID")
-    private Cart cart;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
