@@ -11,16 +11,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@Entity
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
+@Entity
 @Table(name = "ORDERS")
 public class Order {
 
     @Id
-    @NotNull
     @GeneratedValue
     @Column(name = "ORDER_ID", unique = true)
     private Long id;
@@ -36,6 +34,7 @@ public class Order {
     @NotNull
     @Column(name = "ORDER_CONFIRMATION")
     private boolean orderConfirmation;
+
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")

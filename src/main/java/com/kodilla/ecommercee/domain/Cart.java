@@ -17,8 +17,8 @@ import java.util.List;
 public class Cart {
 
     @Id
-    @NotNull
     @GeneratedValue
+    @NotNull
     @Column(name = "CART_ID", unique = true)
     private Long id;
 
@@ -26,11 +26,16 @@ public class Cart {
     @JoinColumn(name = "USER_ID")
     private User user;
 
-    @OneToMany(
-            targetEntity = Order.class,
-            mappedBy = "cart",
-            cascade = CascadeType.REMOVE,
-            fetch = FetchType.LAZY
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ORDER_ID")
+    private Order order;
+
+    @ManyToMany(cascade = CascadeType.REMOVE)
+    @JoinTable(
+            name = "CartsHasProducts",
+            joinColumns = {@JoinColumn(name = "products_id")},
+            inverseJoinColumns = {@JoinColumn(name = "carts_id")}
     )
-    private List<Order> orders = new ArrayList<>();
+    private List<Product> productInTheCart = new ArrayList<>();
+
 }

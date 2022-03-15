@@ -9,15 +9,14 @@ import java.util.List;
 import java.util.ArrayList;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "groups")
+@Table(name = "\"GROUPS\"")
 public class Group {
 
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "GROUP_ID", unique = true)
     private Long id;
 
     @Column(name = "NAME")
