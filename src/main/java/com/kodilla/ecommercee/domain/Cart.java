@@ -32,7 +32,7 @@ public class Cart {
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
-            name = "CartsHasProducts",
+            name = "CartHasProduct",
             joinColumns = {@JoinColumn(name = "products_id")},
             inverseJoinColumns = {@JoinColumn(name = "carts_id")}
     )
