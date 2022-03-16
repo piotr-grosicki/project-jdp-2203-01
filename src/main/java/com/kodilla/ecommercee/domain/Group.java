@@ -7,11 +7,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.ArrayList;
+
 @Getter
 @NoArgsConstructor
 @Entity
 @Table(name = "\"GROUPS\"")
 public class Group {
+
+    public Group(String name) {
+        this.name = name;
+    }
 
     @Id
     @GeneratedValue
