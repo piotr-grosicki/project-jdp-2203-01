@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +23,22 @@ public class User {
     @GeneratedValue
     @Column(name = "USER_ID", unique = true)
     private Long id;
-
     @Column(name = "LOGIN")
     private String login;
     @Column(name = "PHONE_NUMBER")
-    private int phoneNumber;
+    private Integer phoneNumber;
     @Column(name = "EMAIL")
     private String email;
     @Column(name = "ADDRESS")
     private String address;
+    @Column(name = "GENERATED_KEY")
+    private Integer key;
+    @Column(name = "KEY_GENERATION_DATE")
+    private LocalDate keyGenerationDate;
+    @Column(name = "KEY_GENERATION_TIME")
+    private LocalTime keyGenerationTime;
+    @Column(name = "USER_STATUS")
+    private boolean status;
     @OneToMany (targetEntity = Order.class,
                 mappedBy = "user",
                 cascade = CascadeType.REMOVE,

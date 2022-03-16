@@ -1,24 +1,21 @@
 package com.kodilla.ecommercee.domain;
 
-import static org.junit.Assert.*;
-
 import com.kodilla.ecommercee.repository.UserRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
 public class UserTestSuite {
 
     @Autowired
     UserRepository userRepository;
-    public User user = new User();
+    User user = new User();
 
-    @Before
+    @BeforeEach
     public void prepareTests() {
         user.setLogin("test");
         user.setPhoneNumber(629714902);
@@ -32,11 +29,11 @@ public class UserTestSuite {
         //When
         userRepository.save(user);
         //Then
-        assertTrue(userRepository.findById(user.getId()).isPresent());
-        assertTrue(userRepository.findByAddress(user.getAddress()).isPresent());
-        assertTrue(userRepository.findByEmail(user.getEmail()).isPresent());
-        assertTrue(userRepository.findByLogin(user.getLogin()).isPresent());
-        assertTrue(userRepository.findByPhoneNumber(user.getPhoneNumber()).isPresent());
+        Assertions.assertTrue(userRepository.findById(user.getId()).isPresent());
+        Assertions.assertTrue(userRepository.findByAddress(user.getAddress()).isPresent());
+        Assertions.assertTrue(userRepository.findByEmail(user.getEmail()).isPresent());
+        Assertions.assertTrue(userRepository.findByLogin(user.getLogin()).isPresent());
+        Assertions.assertTrue(userRepository.findByPhoneNumber(user.getPhoneNumber()).isPresent());
         //CleanUp
         userRepository.deleteById(user.getId());
     }
@@ -53,7 +50,7 @@ public class UserTestSuite {
         userRepository.save(user);
         userRepository.save(secondUser);
         //Then
-        assertEquals(2, userRepository.findAll().size());
+        Assertions.assertEquals(2, userRepository.findAll().size());
         //CleanUp
         userRepository.deleteById(user.getId());
         userRepository.deleteById(secondUser.getId());
