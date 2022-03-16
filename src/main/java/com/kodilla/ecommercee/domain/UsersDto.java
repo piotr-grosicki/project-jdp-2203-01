@@ -10,7 +10,7 @@ import lombok.ToString;
 public class UsersDto {
     private Long id;
     private String login;
+    private Integer phoneNumber;
     private String email;
     private String address;
-
 }
