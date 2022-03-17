@@ -1,12 +1,12 @@
 package com.kodilla.ecommercee.mapper;
 
-import com.kodilla.ecommercee.domain.Order;
-import com.kodilla.ecommercee.domain.OrderDto;
-import lombok.Builder;
-import org.springframework.stereotype.Service;
+        import com.kodilla.ecommercee.domain.Order;
+        import com.kodilla.ecommercee.domain.OrderDto;
+        import lombok.Builder;
+        import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+        import java.util.List;
+        import java.util.stream.Collectors;
 
 @Service
 public class OrderMapper {
