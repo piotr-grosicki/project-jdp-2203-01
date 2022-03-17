@@ -22,13 +22,6 @@ public class OrderTestSuite {
     @Autowired
     private OrderRespository orderRespository;
 
-    private UserRepository userRepository;
-
-    private Order order1;
-    private Order order2;
-    private User user;
-
-
     @Before
     public void prepareUsersAndOrders() {
 
