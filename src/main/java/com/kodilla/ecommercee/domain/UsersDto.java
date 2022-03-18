@@ -13,4 +13,5 @@ public class UsersDto {
     private Integer phoneNumber;
     private String email;
     private String address;
+    private Long cartId;
 }
