@@ -22,7 +22,7 @@ public class Cart {
     @Column(name = "CART_ID", unique = true)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID")
     private User user;
 
@@ -30,12 +30,16 @@ public class Cart {
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "CartsHasProducts",
             joinColumns = {@JoinColumn(name = "products_id")},
             inverseJoinColumns = {@JoinColumn(name = "carts_id")}
     )
     private List<Product> productInTheCart = new ArrayList<>();
+
+    public Cart(User user) {
+        this.user = user;
+    }
 
 }

@@ -45,4 +45,8 @@ public class User {
                 fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 
+    public User(String login) {
+        this.login = login;
+    }
+
 }

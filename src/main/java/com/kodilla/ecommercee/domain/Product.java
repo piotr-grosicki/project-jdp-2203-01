@@ -45,4 +45,9 @@ public class Product {
     @JoinColumn(name = "GROUP_ID")
     private Group group;
 
+    public Product(String name, BigDecimal price, Group group) {
+        this.name = name;
+        this.price = price;
+        this.group = group;
+    }
 }

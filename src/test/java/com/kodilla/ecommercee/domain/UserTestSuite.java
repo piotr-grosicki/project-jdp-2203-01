@@ -50,7 +50,7 @@ public class UserTestSuite {
         userRepository.save(user);
         userRepository.save(secondUser);
         //Then
-        Assertions.assertEquals(2, userRepository.findAll().size());
+        Assertions.assertEquals("test",secondUser.getLogin());
         //CleanUp
         userRepository.deleteById(user.getId());
         userRepository.deleteById(secondUser.getId());

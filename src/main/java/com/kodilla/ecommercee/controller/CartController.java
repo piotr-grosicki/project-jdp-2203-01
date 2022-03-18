@@ -1,6 +1,7 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.CartDto;
+import com.kodilla.ecommercee.domain.OrderDto;
 import com.kodilla.ecommercee.domain.ProductDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -32,15 +33,16 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/{OrderID}")
-    public ResponseEntity<Void> createOrderFromCart(@RequestBody Long OrderID) {
+    @PostMapping("/o/{idCart}")
+    public ResponseEntity<OrderDto> createOrderFromCart(@RequestBody Long idCart) {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/{idCart}")
-    public ResponseEntity<Void> createEmptyCart(@RequestBody Long idCart) {
+    @PostMapping("/u/{userId}")
+    public ResponseEntity<CartDto> createEmptyCart(@RequestBody Long userId) {
         return ResponseEntity.ok().build();
     }
+
 
 
 }
