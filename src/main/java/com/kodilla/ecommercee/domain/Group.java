@@ -18,6 +18,11 @@ public class Group {
         this.name = name;
     }
 
+    public Group(Long id, @NotNull String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue
     @NotNull
