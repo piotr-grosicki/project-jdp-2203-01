@@ -1,7 +1,16 @@
 package com.kodilla.ecommercee.service;
 
-import com.kodilla.ecommercee.controller.ProductNotFoundException;
+import com.kodilla.ecommercee.domain.Cart;
+import com.kodilla.ecommercee.domain.Group;
+import com.kodilla.ecommercee.domain.Order;
+import com.kodilla.ecommercee.exceptions.CartNotFoundException;
+import com.kodilla.ecommercee.exceptions.GroupNotFoundException;
+import com.kodilla.ecommercee.exceptions.OrderNotFoundException;
+import com.kodilla.ecommercee.exceptions.ProductNotFoundException;
 import com.kodilla.ecommercee.domain.Product;
+import com.kodilla.ecommercee.repository.CartRepository;
+import com.kodilla.ecommercee.repository.GroupRepository;
+import com.kodilla.ecommercee.repository.OrderRepository;
 import com.kodilla.ecommercee.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,26 +21,47 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DBService {
 
-    private final ProductRepository repository;
+    private final ProductRepository productRepository;
+    private final CartRepository cartRepository;
+    private final OrderRepository orderRepository;
+    private final GroupRepository groupRepository;
 
     public List<Product> getAllProducts() {
-        return repository.findAll();
+        return productRepository.findAll();
     }
 
     public Product getProduct(final Long productId) throws ProductNotFoundException {
-        return repository.findById(productId).orElseThrow(ProductNotFoundException::new);
+        return productRepository.findById(productId).orElseThrow(ProductNotFoundException::new);
+    }
+
+    public Cart getCart(final Long cartId) throws CartNotFoundException {
+        return cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
+    }
+    public List<Cart> getCarts(final List<Long> cartIds) {
+        return cartRepository.findAllById(cartIds);
+    }
+    public Order getOrder(final Long orderId) throws OrderNotFoundException {
+        return orderRepository.findById(orderId).orElseThrow(OrderNotFoundException::new);
     }
 
     public Product saveProduct(final Product product) {
-        return repository.save(product);
+        return productRepository.save(product);
     }
 
     public void deleteProduct(final Long productId) throws ProductNotFoundException{
         try {
-            repository.deleteById(productId);
+            productRepository.deleteById(productId);
         } catch (Exception e){
             throw new  ProductNotFoundException();
         }
+    }
+
+    public List<Order> getOrders(List<Long> ordersIds) {
+        return orderRepository.findAllById(ordersIds);
+    }
+
+    public Group getGroup(Long groupId) throws GroupNotFoundException {
+        return groupRepository.findById(groupId).orElseThrow(GroupNotFoundException::new);
     }
 }
 

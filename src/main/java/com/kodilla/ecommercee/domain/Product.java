@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -53,4 +55,13 @@ public class Product {
     @JoinColumn(name = "GROUP_ID")
     private Group group;
 
+    public Product(Long id, String name, BigDecimal price, Boolean availability, String description, List<Cart> carts, List<Order> orders) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.availability = availability;
+        this.description = description;
+        this.carts = carts;
+        this.orders = orders;
+    }
 }
