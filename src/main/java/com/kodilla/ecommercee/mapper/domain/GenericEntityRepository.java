@@ -1,6 +1,5 @@
-package com.kodilla.ecommercee.domain;
+package com.kodilla.ecommercee.mapper.domain;
 
-import com.kodilla.ecommercee.domain.GenericEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

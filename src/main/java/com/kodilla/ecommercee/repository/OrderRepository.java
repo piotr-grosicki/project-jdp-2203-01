@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.repository;
 
-import com.kodilla.ecommercee.domain.Order;
+import com.kodilla.ecommercee.mapper.domain.Order;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

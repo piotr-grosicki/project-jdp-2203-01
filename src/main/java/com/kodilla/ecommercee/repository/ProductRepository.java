@@ -1,7 +1,6 @@
 package com.kodilla.ecommercee.repository;
 
-import com.fasterxml.jackson.databind.introspect.AnnotationCollector;
-import com.kodilla.ecommercee.domain.Product;
+import com.kodilla.ecommercee.mapper.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

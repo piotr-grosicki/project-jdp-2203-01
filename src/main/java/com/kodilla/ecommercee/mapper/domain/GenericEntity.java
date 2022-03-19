@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee.domain;
+package com.kodilla.ecommercee.mapper.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

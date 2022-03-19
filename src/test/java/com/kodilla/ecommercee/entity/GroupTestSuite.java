@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.entity;
 
-import com.kodilla.ecommercee.domain.Group;
+import com.kodilla.ecommercee.mapper.domain.Group;
 import com.kodilla.ecommercee.repository.GroupRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

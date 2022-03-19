@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.repository;
 
-import com.kodilla.ecommercee.domain.Cart;
+import com.kodilla.ecommercee.mapper.domain.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

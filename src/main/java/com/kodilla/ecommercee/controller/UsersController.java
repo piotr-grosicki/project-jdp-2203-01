@@ -1,8 +1,8 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.controller.user_exceptions.InvalidKeyException;
-import com.kodilla.ecommercee.domain.User;
-import com.kodilla.ecommercee.domain.UsersDto;
+import com.kodilla.ecommercee.mapper.domain.User;
+import com.kodilla.ecommercee.mapper.domain.UsersDto;
 import com.kodilla.ecommercee.mapper.UserMapper;
 import com.kodilla.ecommercee.service.UserDbService;
 import org.springframework.beans.factory.annotation.Autowired;

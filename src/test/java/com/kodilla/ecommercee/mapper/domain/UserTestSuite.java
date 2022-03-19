@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee.domain;
+package com.kodilla.ecommercee.mapper.domain;
 
 import com.kodilla.ecommercee.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;

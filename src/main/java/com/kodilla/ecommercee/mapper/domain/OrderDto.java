@@ -1,8 +1,6 @@
-package com.kodilla.ecommercee.domain;
+package com.kodilla.ecommercee.mapper.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -10,9 +8,12 @@ import java.time.LocalDate;
 @Getter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class OrderDto {
     private Long id;
     private BigDecimal totalCost;
     private LocalDate creationDate;
     private boolean orderConfirmation;
+
+
 }
