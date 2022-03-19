@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("v1/group")
@@ -24,8 +25,8 @@ public class GroupController {
         return mapper.mapToGroupDtoList(groups);
     }
 
-    @GetMapping(value = "getGroup")
-    public GroupDto getGroup(@RequestParam Long id) throws GroupNotFoundException {
+    @GetMapping(value = "/getGroup/{id}")
+    public GroupDto getGroup(@PathVariable Long id) throws GroupNotFoundException {
         return mapper.mapToGroupDto(service.getGroup(id).orElseThrow(GroupNotFoundException::new));
     }
 
