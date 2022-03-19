@@ -32,13 +32,13 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/{OrderID}")
-    public ResponseEntity<Void> createOrderFromCart(@RequestBody Long OrderID) {
+    @PostMapping("/o/{idCart}")
+    public ResponseEntity<Void> createOrderFromCart(@RequestBody Long idCart) {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/{idCart}")
-    public ResponseEntity<Void> createEmptyCart(@RequestBody Long idCart) {
+    @PostMapping("/u/{userId}")
+    public ResponseEntity<Void> createEmptyCart(@RequestBody Long userId) {
         return ResponseEntity.ok().build();
     }
 

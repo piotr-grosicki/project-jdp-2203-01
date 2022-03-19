@@ -9,4 +9,7 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
     @Override
     Optional<Cart> findById(Long id);
 
+    @Override
+    void deleteById(Long id);
+
 }

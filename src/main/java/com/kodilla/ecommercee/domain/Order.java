@@ -48,4 +48,8 @@ public class Order {
     )
     private List<Product> products = new ArrayList<>();
 
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "CART_ID")
+    private Cart cart;
+
 }
