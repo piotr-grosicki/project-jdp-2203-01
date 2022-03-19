@@ -24,7 +24,7 @@ public class ProductTest {
     @Autowired
     CartRepository cartRepository;
     @Autowired
-    OrderReposgititory orderRepository;
+    OrderRepository orderRepository;
     @Autowired
     GroupRepository groupRepository;
 
