@@ -37,6 +37,4 @@ public class Cart {
             inverseJoinColumns = {@JoinColumn(name = "carts_id")}
     )
     private List<Product> productInTheCart = new ArrayList<>();
-
-
 }
