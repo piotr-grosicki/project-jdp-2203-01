@@ -93,7 +93,6 @@ public class CartTestSuite {
         cartRepository.save(cart);
 
         cart.setProductInTheCart(productsInTheCart);
-        orderRepository.save(order);
 
         //WHEN
         orderRepository.save(order);
