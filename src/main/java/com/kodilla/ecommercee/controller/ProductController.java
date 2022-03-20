@@ -5,7 +5,7 @@ import com.kodilla.ecommercee.domain.ProductDto;
 import com.kodilla.ecommercee.controller.exceptions.GroupNotFoundException;
 import com.kodilla.ecommercee.controller.exceptions.ProductNotFoundException;
 import com.kodilla.ecommercee.mapper.ProductMapper;
-import com.kodilla.ecommercee.service.DBService;
+import com.kodilla.ecommercee.service.ProductDbService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,38 +18,39 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductController {
 
-    private final DBService service;
+    private final ProductDbService productDbService;
     private final ProductMapper productMapper;
 
     @GetMapping
     public ResponseEntity<List<ProductDto>> getProducts() {
-        List<Product> products = service.getAllProducts();
+        List<Product> products = productDbService.getAllProducts();
          return ResponseEntity.ok( productMapper.mapToProductDtoList(products));
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> createProduct(@RequestBody ProductDto productDto) throws GroupNotFoundException {
         Product product = productMapper.mapToProduct(productDto);
-         service.saveProduct(product);
+         productDbService.saveProduct(product);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping(value = "/{productId}")
     public ResponseEntity<ProductDto> getProduct(@PathVariable Long productId)
         throws ProductNotFoundException {
-            return ResponseEntity.ok(productMapper.mapToProductDto(service.getProduct(productId)));
+            return ResponseEntity.ok(productMapper.mapToProductDto(productDbService.getProduct(productId)));
     }
 
     @PutMapping
     public ResponseEntity<ProductDto> updateProduct(@RequestBody ProductDto productDto) throws GroupNotFoundException {
              Product product = productMapper.mapToProduct(productDto);
-             Product savedProduct = service.saveProduct(product);
+             Product savedProduct = productDbService.saveProduct(product);
              return ResponseEntity.ok(productMapper.mapToProductDto(savedProduct));
         }
 
     @DeleteMapping(value = "/{productId}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long productId)
-        throws ProductNotFoundException {service.deleteProduct(productId);
+        throws ProductNotFoundException {
+        productDbService.deleteProduct(productId);
         return ResponseEntity.ok().build();
     }
 

@@ -19,7 +19,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class DBService {
+public class ProductDbService {
 
     private final ProductRepository productRepository;
     private final CartRepository cartRepository;
