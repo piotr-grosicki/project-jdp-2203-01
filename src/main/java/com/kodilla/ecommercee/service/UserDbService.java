@@ -1,7 +1,7 @@
 package com.kodilla.ecommercee.service;
 
-import com.kodilla.ecommercee.controller.user_exceptions.BlockedUserException;
-import com.kodilla.ecommercee.controller.user_exceptions.UserNotFoundException;
+import com.kodilla.ecommercee.controller.exceptions.BlockedUserException;
+import com.kodilla.ecommercee.controller.exceptions.UserNotFoundException;
 import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.repository.UserRepository;

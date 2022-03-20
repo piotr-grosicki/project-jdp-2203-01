@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.controller;
 
-import com.kodilla.ecommercee.controller.user_exceptions.InvalidKeyException;
+import com.kodilla.ecommercee.controller.exceptions.InvalidKeyException;
 import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.domain.UsersDto;
 import com.kodilla.ecommercee.mapper.UserMapper;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/users")
 public class UsersController {
