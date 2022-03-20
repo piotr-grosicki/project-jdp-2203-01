@@ -91,10 +91,10 @@ public class UserTestSuite {
         orderRepository.save(order);
 
         //WHEN
-        int numberOfOrders = user.getOrders().size();
+        orderRepository.deleteById(order.getId());
 
         //THEN
-        Assertions.assertEquals(1,numberOfOrders);
+        Assertions.assertTrue(userRepository.findById(user.getId()).isPresent());
 
         //CLEANUP
         userRepository.deleteById(user.getId());
