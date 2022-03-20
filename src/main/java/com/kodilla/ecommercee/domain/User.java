@@ -39,13 +39,19 @@ public class User {
     private LocalTime keyGenerationTime;
     @Column(name = "USER_STATUS")
     private boolean status;
+    
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "CART_ID")
     private Cart cart;
+    
     @OneToMany (targetEntity = Order.class,
                 mappedBy = "user",
                 cascade = CascadeType.REMOVE,
                 fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
+
+    public User(String login) {
+        this.login = login;
+    }
 
 }

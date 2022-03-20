@@ -36,7 +36,7 @@ public class Order {
     @Column(name = "ORDER_CONFIRMATION")
     private boolean orderConfirmation;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "USER_ID")
     private User user;
 
@@ -47,5 +47,9 @@ public class Order {
             inverseJoinColumns = {@JoinColumn(name = "PRODUCT_ID", referencedColumnName = "PRODUCT_ID")}
     )
     private List<Product> products = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "CART_ID")
+    private Cart cart;
 
 }

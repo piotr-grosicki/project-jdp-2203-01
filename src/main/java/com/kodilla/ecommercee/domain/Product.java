@@ -55,6 +55,12 @@ public class Product {
     @JoinColumn(name = "GROUP_ID")
     private Group group;
 
+    public Product(String name, BigDecimal price, Group group) {
+        this.name = name;
+        this.price = price;
+        this.group = group;
+    }
+
     public Product(Long id, String name, BigDecimal price, Boolean availability, String description, List<Cart> carts, List<Order> orders) {
         this.id = id;
         this.name = name;
@@ -64,4 +70,5 @@ public class Product {
         this.carts = carts;
         this.orders = orders;
     }
+
 }

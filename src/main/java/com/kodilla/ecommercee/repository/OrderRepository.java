@@ -9,4 +9,7 @@ import java.util.Optional;
 public interface OrderRepository extends JpaRepository<Order, Long> {
     @Override
     Optional<Order> findById(Long id);
+
+    @Override
+    void deleteById(Long id);
 }
