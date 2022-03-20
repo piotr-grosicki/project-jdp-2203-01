@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -26,6 +28,14 @@ public class Product {
     private BigDecimal price;
     private Boolean availability;
     private String description;
+
+    public Product(Long id, String name, BigDecimal price, Boolean availability, String description) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.availability = availability;
+        this.description = description;
+    }
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "JOIN_PRODUCTS_CARTS",
@@ -49,6 +59,16 @@ public class Product {
         this.name = name;
         this.price = price;
         this.group = group;
+    }
+
+    public Product(Long id, String name, BigDecimal price, Boolean availability, String description, List<Cart> carts, List<Order> orders) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.availability = availability;
+        this.description = description;
+        this.carts = carts;
+        this.orders = orders;
     }
 
 }

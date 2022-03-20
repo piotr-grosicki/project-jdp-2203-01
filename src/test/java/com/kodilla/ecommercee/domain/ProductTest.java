@@ -90,7 +90,7 @@ public class ProductTest {
     }
 
     @Test
-    public void cartProductTest() {
+    public void checkIfCartIsRemovedTest() {
         List<Cart> carts = new ArrayList<>();
         Cart cart = new Cart();
         carts.add(cart);
@@ -104,7 +104,7 @@ public class ProductTest {
     }
 
     @Test
-    public void orderProductTest() {
+    public void checkIfOrderIsRemovedTest() {
         List<Order> orders = new ArrayList<>();
         Order order = new Order();
         order.setOrderConfirmation(true);
@@ -121,7 +121,7 @@ public class ProductTest {
     }
 
     @Test
-    public void groupProductTest() {
+    public void checkIfGroupIsRemovedTest() {
         Group group = new Group();
         product.setGroup(group);
         groupRepository.save(group);
@@ -132,7 +132,6 @@ public class ProductTest {
         assertFalse(productRepository.findById(product.getId()).isPresent());
         assertTrue(groupRepository.findById(group.getId()).isPresent());
     }
-
 
 }
 
