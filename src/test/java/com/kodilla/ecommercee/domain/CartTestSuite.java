@@ -93,6 +93,7 @@ public class CartTestSuite {
         cartRepository.save(cart);
 
         cart.setProductInTheCart(productsInTheCart);
+        orderRepository.save(order);
 
         //WHEN
         orderRepository.save(order);
@@ -100,11 +101,11 @@ public class CartTestSuite {
         //THEN
         assertTrue(orderRepository.findById(order.getId()).isPresent());
         assertEquals(3, productsInTheCart.size());
+        orderRepository.deleteById(order.getId());
+        assertTrue(cartRepository.findById(cart.getId()).isPresent());
 
         //CLEANUP
         cartRepository.deleteById(cart.getId());
-        orderRepository.deleteById(order.getId());
-        assertFalse(orderRepository.findById(order.getId()).isPresent());
 
     }
 
