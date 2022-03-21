@@ -5,7 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Builder
@@ -13,6 +14,9 @@ import java.time.LocalDate;
 public class OrderDto {
     private Long id;
     private BigDecimal totalCost;
-    private LocalDate creationDate;
+    private String creationDate;
     private boolean orderConfirmation;
+    private Long userId;
+    private Long cartId;
+    private List<Long> productsId;
 }
