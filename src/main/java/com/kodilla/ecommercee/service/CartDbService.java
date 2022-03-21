@@ -63,4 +63,31 @@ public class CartDbService {
         productRepository.deleteById(id);
     }
 
+    public List<Cart> getCarts() {
+        return cartRepository.findAll();
+    }
+
+    public Cart addToCart(final Long idCart, final Long idProduct) throws CartNotFoundException, ProductNotFoundException, ProductNotFoundException {
+        Cart cart = cartRepository.findById(idCart).orElseThrow(CartNotFoundException::new);
+        Product product = productRepository.findById(idProduct).orElseThrow(ProductNotFoundException::new);
+
+        if (product.getAvailability()) {
+            cart.getProductInTheCart().add(product);
+            cartRepository.save(cart);
+            return cart;
+
+        } else throw new ProductNotFoundException();
+    }
+
+    public Cart deleteFromCart(final Long idCart, final Long idProduct) throws CartNotFoundException, ProductNotFoundException {
+        Cart cart = cartRepository.findById(idCart).orElseThrow(CartNotFoundException::new);
+
+        Product product = cart.getProductInTheCart().stream()
+                .filter(p->p.getId().equals(idProduct))
+                .findFirst().orElseThrow(ProductNotFoundException::new);
+
+        cart.getProductInTheCart().remove(product);
+        cartRepository.save(cart);
+        return cart;
+    }
 }
